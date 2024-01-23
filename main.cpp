@@ -3,6 +3,33 @@ using namespace std;
 #define rep(i, n) for (int i = 0; i < (n); ++i)
 
 int main(){
+    vector<int> v,cnt;
+    int ans=0;
+    rep(i,10){
+        int a;cin>>a;
+        ans+=a;
+        v.push_back(a);
+        if(i!=8 && a==10){
+            cnt.push_back(v.size());
+            cnt.push_back(v.size()+1);
+            continue;
+        } 
+        int b; cin>>b;
+        ans+=b;
+        v.push_back(b);
+        if(a+b==10){
+            cnt.push_back(v.size());
+        }
+        if(i==9 && a+b>=10){
+            int c; cin>>c;
+            ans+=c;
+        }
+    }
+
+    rep(i,cnt.size()){
+        ans+=v[cnt[i]];
+    }
+    cout<<ans<<endl;
     return 0;
 }
 
